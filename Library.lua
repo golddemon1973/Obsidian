@@ -1502,9 +1502,9 @@ function Library:MakeResizable(UI: GuiObject, DragFrame: GuiObject, Callback: ()
 			local Delta = Input.Position - StartPos
 			UI.Size = UDim2.new(
 				FrameSize.X.Scale,
-				math.clamp(FrameSize.X.Offset + Delta.X, CustomMinSize.X or Library.MinSize.X, CustomMaxSize.X),
+				math.clamp(FrameSize.X.Offset + Delta.X, CustomMinSize.X or Library.MinSize.X, CustomMaxSize.X or math.huge),
 				FrameSize.Y.Scale,
-				math.clamp(FrameSize.Y.Offset + Delta.Y, CustomMinSize.Y or Library.MinSize.Y, CustomMaxSize.Y)
+				math.clamp(FrameSize.Y.Offset + Delta.Y, CustomMinSize.Y or Library.MinSize.Y, CustomMaxSize.Y or math.huge)
 			)
 			if Callback then
 				Library:SafeCallback(Callback)
